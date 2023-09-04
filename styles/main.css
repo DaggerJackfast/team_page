@@ -3,7 +3,7 @@ body {
     font-size: 14px;
     font-weight: 400;
     color: #777777;
-    background: #f3f3f3;
+    background: #ffffff;
     min-width: 275px;
 }
 
@@ -17,7 +17,10 @@ body {
     width: 100%;
     height: 80px;
     display: flex;
-    border-bottom: 1px solid red;
+}
+
+.navbar_box-shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15)
 }
 
 .navbar-brand {
@@ -55,11 +58,11 @@ body {
     padding: 10px;
 }
 .icon-search {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     display: block;
-    background-image: url("images/icons/ic-magnifying-glass-solid.svg");
-    background-size: contain;
+    background-image: url("/images/icons/ic-magnifying-glass-solid.svg");
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -87,4 +90,8 @@ body {
     color: black;
     font-size: 18px;
     text-decoration: none;
+}
+
+.section {
+
 }
