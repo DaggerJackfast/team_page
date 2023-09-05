@@ -11,7 +11,7 @@ define(['./api','jquery', 'dayjs'], function(api, $, dayjs){
         const team = state.team;
         const me = state.me;
 
-        const teamTable = $("#team-table");
+        const teamTable = $("#team-table tbody");
         teamTable.empty();
 
         team.forEach(function(member){
@@ -48,7 +48,7 @@ define(['./api','jquery', 'dayjs'], function(api, $, dayjs){
 
     function renderInvitationsTable() {
         const invitations = state.invitations;
-        const invitationsTable = $('#invitations-table');
+        const invitationsTable = $('#invitations-table tbody');
         invitationsTable.empty();
 
         invitations.forEach(function(invitation){
