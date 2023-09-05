@@ -1,10 +1,36 @@
-define(['./api','jquery', 'dayjs'], function(api, $, dayjs){
+define(['./config', './api','jquery', 'dayjs'], function(config, api, $, dayjs){
     const state = this;
 
     function initState() {
         state.team = api.getTeam();
         state.invitations = api.getInvitations();
         state.me = api.getMe();
+    }
+
+    function renderAvailableSeats() {
+        const team = state.team;
+        const invitations = state.invitations;
+
+        const teamTotalCount = config.teamCount;
+        const availableCount = teamTotalCount - team.length - invitations.length;
+        const freeSeatsMessage = availableCount > 0 ? `(${availableCount} seats available)` : '(No seats available)';
+
+        const tableAvailableSeatsElement = $('#team-available-seats');
+        tableAvailableSeatsElement.html(freeSeatsMessage);
+    }
+
+    function renderTeamCount() {
+        const team = state.team;
+
+        const teamCountElement = $('#team-count');
+        teamCountElement.html(`(${team.length})`);
+    }
+
+    function renderInvitationCount() {
+        const invitations = state.invitations;
+
+        const invitationsCountElement = $('#invitations-count');
+        invitationsCountElement.html(`(${invitations.length})`);
     }
 
     function renderTeamTable(){
@@ -73,6 +99,9 @@ define(['./api','jquery', 'dayjs'], function(api, $, dayjs){
 
     function init() {
         initState();
+        renderAvailableSeats();
+        renderTeamCount();
+        renderInvitationCount();
         renderTeamTable();
         renderInvitationsTable();
     }
