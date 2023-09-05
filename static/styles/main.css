@@ -310,6 +310,16 @@ body {
     display: inline-block;
 }
 
+.button {
+    padding: 7px 12px;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid #999999;
+    background: #999999;
+    color: #ffffff;
+}
+
 .button-red {
     border: 1px solid #dc3545;
     background: #dc3545;
@@ -326,4 +336,76 @@ body {
     border: 1px solid #03cfb7;
     background: #03cfb7;
     color: #ffffff;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+    border: 1px solid red;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.modal-overlay-show {
+    display: flex;
+}
+
+.modal {
+    border: 1px solid blue;
+    display: flex;
+    min-width: 700px;
+    min-height: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    flex-direction: column;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    right: 7px;
+    top: 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.modal-content {
+    flex: 1;
+}
+
+
+.modal-note {
+    background: #d3eeeb;
+    color: black;
+    font-size: 18px;
+    padding: 16px 10px;
+    border-radius: 6px;
+}
+
+.modal-sub-message {
+    padding-top: 6px;
+}
+
+.modal-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-action {
+    margin-right: 10px;
+}
+
+.modal-action:last-of-type {
+    margin-right: 0;
 }

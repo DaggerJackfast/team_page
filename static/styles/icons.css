@@ -6,6 +6,10 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+.icon-close {
+    background-image: url("/static/images/icons/ic-close.svg");
+}
+
 .icon-user-invite {
     background-image: url("/static/images/icons/ic-user-invite.svg");
 }

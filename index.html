@@ -8,6 +8,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
     <link rel="stylesheet" href="static/styles/normalize.css">
+    <link rel="stylesheet" href="static/vendors/select2.css">
+    <link rel="stylesheet" href="static/vendors/emailsInput.css">
     <link rel="stylesheet" href="static/styles/main.css">
     <link rel="stylesheet" href="static/styles/icons.css">
     <script data-main="static/js/main" src="static/vendors/require.js"></script>
@@ -171,7 +173,7 @@
             <div data-tab="team" class="page-tab-content">
                 <div class="page-sub-actions">
                     <div class="sub-action">
-                        <button class="sub-action-button button-green">Invite</button>
+                        <button data-modal-open="invite-modal" class="sub-action-button button-green">Invite</button>
                     </div>
                 </div>
                 <div class="page-table">
@@ -234,5 +236,40 @@
         </div>
     </section>
 </main>
+<div class="modal-overlay modal-overlay-show" data-modal="invite-modal">
+    <div class="modal">
+        <button class="modal-close" data-modal-close="invite-modal">
+            <i class="icon icon-close"></i>
+        </button>
+        <div class="modal-content">
+            <div class="modal-note">
+                <span>Invite people to workspace dev2</span>
+                <div class="modal-sub-message">
+                    <span>You have 6 seats available</span>
+                </div>
+            </div>
+            <div class="invite-form">
+                <div class="form-group">
+                    <label for="invite-role">
+                        Select role
+                        <select class="form-select" name="invite-role" id="invite-role">
+                        </select>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Email addresses</span>
+                    <div id="invite-emails"></div>
+                </div>
+                <div class="form-note">
+                    <span>Your teammates will get an email that gives them access to your team</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-action button" data-modal-close="invite-modal">Cancel</button>
+            <button class="modal-action button button-green">Send</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

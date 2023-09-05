@@ -10,7 +10,7 @@ define(['jquery'], function($) {
             $(this).addClass("page-control-active");
 
             const tab = $(`[data-tab='${tabName}']`);
-            const activeTab = tab.siblings(`[data-tab!=${tabName}].page-tab-content-active`);
+            const activeTab = tab.siblings(`[data-tab!='${tabName}'].page-tab-content-active`);
             activeTab.removeClass('page-tab-content-active');
             tab.addClass('page-tab-content-active');
         });
