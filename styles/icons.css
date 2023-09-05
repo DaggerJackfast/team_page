@@ -6,6 +6,17 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+.icon-user-invite {
+    background-image: url("/images/icons/ic-user-invite.svg");
+}
+
+.icon-arrow-down {
+    background-image: url("/images/icons/ic-arrow.svg");
+}
+.icon-arrow-up {
+    background-image: url("/images/icons/ic-arrow.svg");
+    transform: rotate(180deg);
+}
 
 .icon-search {
     background-image: url("/images/icons/ic-search.svg");

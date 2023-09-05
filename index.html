@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/icons.css">
+    <script data-main="js/main" src="vendors/require.js"></script>
 </head>
 
 <body>
@@ -150,32 +151,80 @@
     <section class="main-section">
         <div class="page">
             <div class="page-title">
-                Team <span class="page-subtitle"></span>
+                <span>Team</span>
+                <span class="page-subtitle">(6 seats available)</span>
             </div>
             <div class="page-control-panel">
                 <div class="page-tabs">
-                    <div class="page-control">
-                        <i class="icon-team"></i>
+                    <div data-tab="team" class="page-control">
+                        <i class="icon control-icon icon-team"></i>
                         <span>Team</span>
-                        <span class="control-label">(2)</span>
+                        <span id="team-count" class="control-label">(0)</span>
                     </div>
-                    <div class="page-control">
-                        <i class="icon-team"></i>
+                    <div data-tab="invitations" class="page-control">
+                        <i class="icon control-icon icon-user-invite"></i>
                         <span>Invitations</span>
-                        <span class="control-label">(1)</span>
+                        <span id="invitations-count" class="control-label">(0)</span>
                     </div>
                 </div>
             </div>
             <div class="page-sub-actions">
                 <div class="sub-action">
-                    <button class="invite-button"></button>
+                    <button>Invite</button>
                 </div>
             </div>
             <div class="page-table">
-                <div class="table">
-                    <div class="table-header"></div>
-                    <div class="table-content"></div>
-                </div>
+                <table class="table" id="team-table">
+                    <colgroup>
+                        <col span="1" class="col-image">
+                        <col span="1">
+                        <col span="1">
+                        <col span="1">
+                        <col span="1" class="col-action">
+                    </colgroup>
+                    <thead class="table-header">
+                    <tr>
+                        <th></th>
+                        <th>
+                            <span class="col-filter">
+                                <span>Name</span>
+                                <i class="icon filter-icon icon-arrow-down"></i>
+                            </span>
+                        </th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-content">
+                    <tr>
+                        <td>
+                            <span class="user-image">
+                                <img src="images/users/user-two.jpg" alt="Admin01 Testovich">
+                            </span>
+                        </td>
+                        <td>
+                            <span>Admin01 Testovich</span>
+                        </td>
+                        <td>admin</td>
+                        <td>active</td>
+                        <td>
+                            <button class="table-action">delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="user-image">
+                                <img src="images/users/placeholder.png" alt="Test Testovich">
+                            </span>
+                        </td>
+                        <td>Test Testovich (you)</td>
+                        <td>owner</td>
+                        <td>active</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
