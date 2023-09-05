@@ -7,7 +7,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
-    <link rel="manifest" href="static/favicon/site.webmanifest">
     <link rel="stylesheet" href="static/styles/normalize.css">
     <link rel="stylesheet" href="static/styles/main.css">
     <link rel="stylesheet" href="static/styles/icons.css">
@@ -159,76 +158,129 @@
                 <span id="team-available-seats" class="page-subtitle">(No seats available)</span>
             </div>
             <div class="page-control-panel">
-                <div class="page-tabs">
-                    <div data-tab="team" class="page-control">
+                <div id="tab-control" class="page-tabs">
+                    <div data-tab-name="team" class="page-control">
                         <i class="icon control-icon icon-team"></i>
                         <span>Team</span>
                         <span id="team-count" class="control-label">(0)</span>
                     </div>
-                    <div data-tab="invitations" class="page-control">
+                    <div data-tab-name="invitations" class="page-control">
                         <i class="icon control-icon icon-user-invite"></i>
                         <span>Invitations</span>
                         <span id="invitations-count" class="control-label">(0)</span>
                     </div>
                 </div>
             </div>
-            <div class="page-sub-actions">
-                <div class="sub-action">
-                    <button>Invite</button>
+            <div data-tab="team" class="page-tab-content">
+                <div class="page-sub-actions">
+                    <div class="sub-action">
+                        <button class="sub-action-button button-green">Invite</button>
+                    </div>
                 </div>
-            </div>
-            <div class="page-table">
-                <table class="table" id="team-table">
-                    <colgroup>
-                        <col span="1" class="col-image">
-                        <col span="1">
-                        <col span="1">
-                        <col span="1">
-                        <col span="1" class="col-action">
-                    </colgroup>
-                    <thead class="table-header">
-                    <tr>
-                        <th></th>
-                        <th>
+                <div class="page-table">
+                    <table class="table" id="team-table">
+                        <colgroup>
+                            <col span="1" class="col-image">
+                            <col span="1">
+                            <col span="1">
+                            <col span="1">
+                            <col span="1" class="col-action">
+                        </colgroup>
+                        <thead class="table-header">
+                        <tr>
+                            <th></th>
+                            <th>
                             <span class="col-filter">
                                 <span>Name</span>
                                 <i class="icon filter-icon icon-arrow-down"></i>
                             </span>
-                        </th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody class="table-content">
-                    <tr>
-                        <td>
+                            </th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-content">
+                        <tr>
+                            <td>
                             <span class="user-image">
                                 <img src="static/images/users/user-two.jpg" alt="Admin01 Testovich">
                             </span>
-                        </td>
-                        <td>
-                            <span>Admin01 Testovich</span>
-                        </td>
-                        <td>admin</td>
-                        <td>active</td>
-                        <td>
-                            <button class="table-action">delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                            </td>
+                            <td>
+                                <span>Admin01 Testovich</span>
+                            </td>
+                            <td>admin</td>
+                            <td>active</td>
+                            <td>
+                                <button class="table-button button-red">delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                             <span class="user-image">
                                 <img src="static/images/users/placeholder.png" alt="Test Testovich">
                             </span>
-                        </td>
-                        <td>Test Testovich (you)</td>
-                        <td>owner</td>
-                        <td>active</td>
-                        <td></td>
-                    </tr>
-                    </tbody>
-                </table>
+                            </td>
+                            <td>Test Testovich (you)</td>
+                            <td>owner</td>
+                            <td>active</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div data-tab="invitations" class="page-tab-content">
+                <div class="page-table">
+                    <table class="table" id="invitations-table">
+                        <colgroup>
+                            <col span="1">
+                            <col span="1">
+                            <col span="1">
+                            <col span="1">
+                            <col span="1">
+                        </colgroup>
+                        <thead class="table-header">
+                        <tr>
+                            <th>
+                            <span class="col-filter">
+                                <span>Email</span>
+                                <i class="icon filter-icon icon-arrow-down"></i>
+                            </span>
+                            </th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Expired</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-content">
+                        <tr>
+                            <td>
+                                <span>invite.one@mail.com</span>
+                            </td>
+                            <td>admin</td>
+                            <td>active</td>
+                            <td>2021-12-23 11:45</td>
+                            <td>
+                                <button class="table-button button-red">delete</button>
+                                <button class="table-button button-blue">resend</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>email.invite.two@mail.com</td>
+                            <td>owner</td>
+                            <td>active</td>
+                            <td>2023-21-33 12:44</td>
+                            <td>
+                                <button class="table-button button-red">delete</button>
+                                <button class="table-button button-blue">resend</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>

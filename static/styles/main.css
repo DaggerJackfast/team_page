@@ -189,6 +189,14 @@ body {
     display: flex;
 }
 
+.page-tab-content {
+    display: none;
+}
+
+.page-tab-content-active {
+    display: block;
+}
+
 .page-control {
     padding: 10px 0;
     margin: 0 5px;
@@ -196,6 +204,10 @@ body {
     font-size: 16px;
     align-items: center;
     display: inline-flex;
+}
+
+.page-control-active {
+    background-color: white;
 }
 
 .control-icon {
@@ -221,10 +233,7 @@ body {
     padding-right: 0;
 }
 
-.sub-action button {
-    border: 1px solid #03cfb7;
-    background: #03cfb7;
-    color: #ffffff;
+.sub-action-button {
     padding: 7px 12px;
     cursor: pointer;
     border-radius: var(--btn-radius);
@@ -243,9 +252,11 @@ body {
 .table-header {
     text-align: left;
 }
+
 .col-filter {
 
 }
+
 .filter-icon {
     width: 10px !important;
     height: 15px !important;
@@ -264,6 +275,7 @@ body {
     padding: 8px;
     vertical-align: middle;
 }
+
 .quarter {
     width: 25%
 }
@@ -291,11 +303,27 @@ body {
     object-fit: contain;
 }
 
-.table-action {
-    border: #dc3545;
-    background: #dc3545;
+.table-button {
     padding: 7px 12px;
-    color: #ffffff;
     border-radius: var(--btn-radius);
     cursor: pointer;
+    display: inline-block;
+}
+
+.button-red {
+    border: 1px solid #dc3545;
+    background: #dc3545;
+    color: #ffffff;
+}
+
+.button-blue {
+    border: 1px solid #17a2b8;
+    background: #17a2b8;
+    color: #ffffff;
+}
+
+.button-green {
+    border: 1px solid #03cfb7;
+    background: #03cfb7;
+    color: #ffffff;
 }

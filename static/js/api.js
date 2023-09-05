@@ -9,6 +9,7 @@ define(['./config','./localStorage',], function (config, storage){
                 lastName: 'Testovich',
                 role: Roles.Admin,
                 status: MemberStatuses.Active,
+                image: '/static/images/user-two.jpg',
             },
             {
                 id: 2,
@@ -17,6 +18,7 @@ define(['./config','./localStorage',], function (config, storage){
                 email: 'admin01.testovich@mail.com',
                 role: Roles.Admin,
                 status: MemberStatuses.Active,
+                image: '/static/images/user-two.jpg',
             },
             {
                 id: 3,
@@ -25,6 +27,7 @@ define(['./config','./localStorage',], function (config, storage){
                 email: 'siana.goldbridth@mail.com',
                 role: Roles.Agent,
                 status: MemberStatuses.Active,
+                image: '/static/images/user-two.jpg',
             },
             {
                 id: 4,
@@ -33,6 +36,7 @@ define(['./config','./localStorage',], function (config, storage){
                 email: 'mark.greenwood@mail.com',
                 role: Roles.Teammate,
                 status: MemberStatuses.Suspended,
+                image: '/static/images/user-two.jpg',
             },
             {
                 id: 5,
@@ -41,6 +45,7 @@ define(['./config','./localStorage',], function (config, storage){
                 email: 'yuri.romanovich@mail.com',
                 role: Roles.Collaborator,
                 status: MemberStatuses.Active,
+                image: null,
             },
             {
                 id: 6,
@@ -49,6 +54,7 @@ define(['./config','./localStorage',], function (config, storage){
                 email: 'nathan.wildenberg@mail.com',
                 role: Roles.Admin,
                 status: MemberStatuses.Active,
+                image: '/static/images/user-two.jpg',
             },
         ],
         invitations: [

@@ -5,7 +5,7 @@ requirejs.config({
     }
 });
 
-define(['./config', './api', 'jquery' ], function (config, api, $) {
+define(['./config', './api', './tabs', 'jquery' ], function (config, api, tabs, $) {
     console.log('its working');
     console.log('config', config);
     api.clear();
@@ -21,7 +21,6 @@ define(['./config', './api', 'jquery' ], function (config, api, $) {
     const availableCount = teamTotalCount - team.length - invitations.length;
     const freeSeatsMessage = availableCount > 0 ? `(${availableCount} seats available)` : '(No seats available)';
     tableAvailableSeatsElement.html(freeSeatsMessage);
-
     const tableElement = $("#team-table");
-
+    tabs.init();
 });
