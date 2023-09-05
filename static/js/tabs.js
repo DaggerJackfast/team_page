@@ -15,8 +15,8 @@ define(['jquery'], function($) {
             tab.addClass('page-tab-content-active');
         });
 
-        // TODO: change to first;
-        tabButtons.last().click();
+
+        tabButtons.first().click();
     }
     return {
         init

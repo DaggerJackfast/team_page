@@ -1,4 +1,4 @@
-define(['./config','./localStorage',], function (config, storage){
+define(['./config', './localStorage',], function (config, storage) {
     const {Roles, MemberStatuses, InvitationStatuses} = config;
     const data = {
         team: [
@@ -9,16 +9,16 @@ define(['./config','./localStorage',], function (config, storage){
                 lastName: 'Testovich',
                 role: Roles.Admin,
                 status: MemberStatuses.Active,
-                image: '/static/images/user-two.jpg',
+                image: 'static/images/users/user-two.jpg',
             },
             {
                 id: 2,
                 firstName: 'Test',
                 lastName: 'Testovich',
                 email: 'admin01.testovich@mail.com',
-                role: Roles.Admin,
+                role: Roles.Owner,
                 status: MemberStatuses.Active,
-                image: '/static/images/user-two.jpg',
+                image: 'static/images/users/user-one.jpg',
             },
             {
                 id: 3,
@@ -27,7 +27,7 @@ define(['./config','./localStorage',], function (config, storage){
                 email: 'siana.goldbridth@mail.com',
                 role: Roles.Agent,
                 status: MemberStatuses.Active,
-                image: '/static/images/user-two.jpg',
+                image: 'static/images/users/user-four.jpg',
             },
             {
                 id: 4,
@@ -36,7 +36,7 @@ define(['./config','./localStorage',], function (config, storage){
                 email: 'mark.greenwood@mail.com',
                 role: Roles.Teammate,
                 status: MemberStatuses.Suspended,
-                image: '/static/images/user-two.jpg',
+                image: 'static/images/users/user-three.jpg',
             },
             {
                 id: 5,
@@ -54,42 +54,57 @@ define(['./config','./localStorage',], function (config, storage){
                 email: 'nathan.wildenberg@mail.com',
                 role: Roles.Admin,
                 status: MemberStatuses.Active,
-                image: '/static/images/user-two.jpg',
+                image: null,
             },
         ],
         invitations: [
             {
                 id: 1,
                 email: 'emma.goldenberg@mail.com',
+                role: Roles.Admin,
                 status: InvitationStatuses.Sent,
                 expirationTime: new Date('2023-10-19 14:00'),
             },
             {
                 id: 2,
                 email: 'emanuel.rogan@mail.com',
-                status: InvitationStatuses.Sent,
+                role: Roles.Teammate,
+                status: InvitationStatuses.Expired,
                 expirationTime: new Date('2023-08-12 21:34'),
             }
         ],
     };
+
     function getTeam() {
-        if(!storage.get('team')){
+        if (!storage.get('team')) {
             storage.add('team', data.team)
         }
         return storage.get('team');
     }
+
     function getInvitations() {
-        if(!storage.get('invitations')){
+        if (!storage.get('invitations')) {
             storage.add('invitations', data.invitations)
         }
         return storage.get('invitations');
     }
+
     function clear() {
         storage.wipe();
     }
+
+    function getMe() {
+        const me = data.team[1];
+        if (!storage.get('me')) {
+            storage.add('me', me);
+        }
+        return storage.get('me');
+    }
+
     return {
         getTeam,
         getInvitations,
+        getMe,
         clear,
     }
 })

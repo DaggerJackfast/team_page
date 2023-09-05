@@ -1,11 +1,12 @@
 requirejs.config({
     paths: {
         jquery: '/static/vendors/jquery',
-        domReady: '/static/vendors/domReady'
+        domReady: '/static/vendors/domReady',
+        dayjs: '/static/vendors/dayjs'
     }
 });
 
-define(['./config', './api', './tabs', 'jquery' ], function (config, api, tabs, $) {
+define(['./config', './api', './tabs', './table', './profile', 'jquery', 'dayjs'], function (config, api, tabs, table, profile, $, dayjs) {
     console.log('its working');
     console.log('config', config);
     api.clear();
@@ -21,6 +22,7 @@ define(['./config', './api', './tabs', 'jquery' ], function (config, api, tabs, 
     const availableCount = teamTotalCount - team.length - invitations.length;
     const freeSeatsMessage = availableCount > 0 ? `(${availableCount} seats available)` : '(No seats available)';
     tableAvailableSeatsElement.html(freeSeatsMessage);
-    const tableElement = $("#team-table");
+    profile.init();
+    table.init();
     tabs.init();
 });
