@@ -23,11 +23,27 @@ define(['./config','./api','jquery', 'select2', 'emailsInput'], function(config,
    }
 
    function renderEmails() {
+      $('#invite-emails').empty();
       const input = emailsInput($('#invite-emails')[0], {
          placeholder: 'Add emails for invite...',
          morePlaceholder: 'Add more emails for invite...'
       });
-      console.log('input');
+      const listOfRandomEmails = [
+         'medhat@miro.com',
+         'maha@miro.com',
+         'karma@miro.com',
+         'adam@miro.com',
+         'john@miro.com',
+         'mike@miro.com',
+         'dirk@miro.com',
+         'thomas@miro.com',
+         'irina@miro.com',
+         'andrew@miro.com',
+         'mo@miro.com',
+      ]
+      listOfRandomEmails.forEach(function(email){
+         input.addEmail(email);
+      })
    }
 
    function init() {

@@ -41,7 +41,10 @@ define(function () {
         email = email.trim();
         if (!email) return;
         const emailBlock = document.createElement('span');
-        emailBlock.innerText = email;
+        const emailItem = document.createElement('span');
+        emailItem.innerText = email;
+        emailItem.classList.add('email-item')
+        emailBlock.appendChild(emailItem);
         emailBlock.setAttribute('data-value', email);
         emailBlock.classList.add('email-block');
 

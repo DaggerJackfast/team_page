@@ -1,8 +1,11 @@
 define(['jquery'], function ($) {
 
+    const state = this;
+
     function listenOpenButton() {
         const openButton = $("[data-modal-open]");
         openButton.click(function () {
+            state.callback();
             const modalName = $(this).data("modal-open");
 
             const modal = $(`[data-modal='${modalName}']`);
@@ -20,9 +23,10 @@ define(['jquery'], function ($) {
         });
     }
 
-    function init() {
+    function init(callback = null) {
         listenOpenButton();
         listenCloseButton();
+        state.callback = callback ? callback : function() {};
     }
 
 

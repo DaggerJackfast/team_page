@@ -15,6 +15,6 @@ define(['./api', './tabs', './modal', './table', './profile', 'inviteForm'], fun
     profile.init();
     table.init();
     tabs.init();
-    modal.init();
     inviteForm.init();
+    modal.init(inviteForm.init);
 });
