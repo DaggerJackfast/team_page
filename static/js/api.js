@@ -106,7 +106,7 @@ define(['./config', './storage', 'dayjs'], function (config, storage, dayjs) {
         const invitations = getInvitations();
         const freeCount = config.teamCount - team.length - invitations.length;
         let invitationEmails = freeCount < emails.length ? emails.slice(0, freeCount) : emails;
-        const lastId = invitations[invitations.length - 1].id;
+        const lastId = invitations.length ? invitations[invitations.length - 1].id : -1;
         const expirationTime = dayjs(new Date()).add(1, 'month').toDate();
         const newInvitations = invitationEmails.map(function(email, index){
             return {
@@ -121,11 +121,42 @@ define(['./config', './storage', 'dayjs'], function (config, storage, dayjs) {
         storage.set('invitations', invitations);
     }
 
+    function deleteMember(memberId) {
+        const team = getTeam();
+        const index = team.findIndex(function(member){
+            return member.id === memberId
+        });
+        team.splice(index, 1);
+        storage.set('team', team);
+    }
+
+    function deleteInvitation(invitationId) {
+        const invitations = getInvitations();
+        const index = invitations.findIndex(function(invitation){
+            return invitation.id === invitationId
+        });
+        invitations.splice(index, 1);
+        storage.set('invitations', invitations);
+    }
+
+    function resendInvitation(invitationId) {
+        const invitations = getInvitations();
+        const index = invitations.findIndex(function(invitation){
+            return invitation.id === invitationId
+        });
+        invitations[index].expirationTime = dayjs(new Date()).add(1, 'month').toDate();
+        invitations[index].status = InvitationStatuses.Sent;
+        storage.set('invitations', invitations);
+    }
+
     return {
         getTeam,
         getInvitations,
         getMe,
         clear,
         sendInvitations,
+        deleteMember,
+        deleteInvitation,
+        resendInvitation,
     }
 })

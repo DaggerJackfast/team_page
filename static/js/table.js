@@ -61,7 +61,7 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
             }
             let action = `
             <span class="table-row-actions">
-                <button class="table-button button-red">
+                <button data-member-id="${member.id}" data-button-name="delete" class="table-button button-red">
                     <icon class="icon icon-delete-white"></icon>
                     <span>delete</span>
                 </button>
@@ -111,11 +111,11 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
                 <td class="hide-on-mobile">${expired}</td>
                 <td>
                     <span class="table-row-actions">
-                        <button class="table-button button-red">
+                        <button data-invitaiton-id="${invitation.id}" data-button-name="delete" class="table-button button-red">
                             <i class="icon icon-delete-white"></i>
                             <span>delete</span>
                         </button>
-                        <button class="table-button button-blue">
+                        <button data-invitation-id="${invitation.id}" data-button-name="resend" class="table-button button-blue">
                             <i class="icon icon-resend-white"></i>
                             <span>resend</span>
                         </button>
@@ -182,11 +182,54 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
         renderAvailableSeats();
         renderInvitationCount();
         renderInvitationsTable();
-        renderInviteDisable()
+        renderInviteDisable();
+        listenInvitationDeleteButton();
+        listenInvitationResendButton();
+    }
+
+    function refreshTeam() {
+        initState();
+        renderAvailableSeats();
+        renderTeamCount();
+        renderTeamTable();
+        listenTeamDeleteButton();
     }
 
     function listenRefresh() {
-        $(document).on('RefreshInvitations', refreshInvitations)
+        $(document).on('RefreshInvitations', refreshInvitations);
+    }
+
+    function listenTeamDeleteButton() {
+        const deleteButton = $("#team-table [data-button-name='delete']");
+
+        deleteButton.click(function (e) {
+            e.stopPropagation();
+            const memberId = parseInt($(this).data('member-id'));
+            api.deleteMember(memberId);
+            refreshTeam();
+        })
+    }
+
+    function listenInvitationDeleteButton() {
+        const deleteButton = $("#invitations-table [data-button-name='delete']");
+
+        deleteButton.click(function (e) {
+            e.stopPropagation();
+            const invitationId = parseInt($(this).data('invitation-id'));
+            api.deleteInvitation(invitationId);
+            refreshInvitations();
+        })
+    }
+
+    function listenInvitationResendButton() {
+        const resendButton = $("#invitations-table [data-button-name='resend']");
+
+        resendButton.click(function (e) {
+            e.stopPropagation();
+            const invitationId = parseInt($(this).data('invitation-id'));
+            api.resendInvitation(invitationId);
+            refreshInvitations();
+        })
     }
 
     function init() {
@@ -198,6 +241,9 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
         renderInvitationsTable();
         renderInviteDisable();
         listenRefresh();
+        listenTeamDeleteButton();
+        listenInvitationDeleteButton();
+        listenInvitationResendButton();
         listenSort();
     }
 
