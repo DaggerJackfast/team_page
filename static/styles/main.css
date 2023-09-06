@@ -457,7 +457,7 @@ body {
 .modal {
     display: flex;
     width: 700px;
-    height: 400px;
+    min-height: 400px;
     background-color: #ffffff;
     border-radius: 10px;
     padding: 30px;
@@ -734,7 +734,6 @@ body {
     .modal {
         min-width: unset;
         width: 80vw;
-        height: 60vh;
     }
 
     .modal-note {
