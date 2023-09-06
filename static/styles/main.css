@@ -654,6 +654,10 @@ body {
         font-size: 11px;
     }
 
+    .page-table {
+        padding-top: 10px;
+    }
+
     .col-image {
         width: 75% !important;
     }
