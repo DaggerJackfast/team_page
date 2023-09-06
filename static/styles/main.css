@@ -262,9 +262,10 @@ body {
     background: #a8a8a8;
     border-color: #a8a8a8;
 }
+
 .sub-action-button:disabled:hover {
-    background: #a8a8a8!important;
-    border-color: #a8a8a8!important;
+    background: #a8a8a8 !important;
+    border-color: #a8a8a8 !important;
 }
 
 .page-table {
@@ -306,14 +307,25 @@ body {
     text-align: left;
 }
 
-.col-filter {
-
+.col-sort {
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
-.filter-icon {
+.sort-icon {
     width: 10px !important;
     height: 15px !important;
+    visibility: hidden;
     vertical-align: middle;
+}
+
+.sort-icon-active {
+    visibility: visible;
+}
+
+.sort-icon-up {
+    transform: rotate(180deg);
 }
 
 .table-header th {

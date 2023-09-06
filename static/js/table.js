@@ -23,7 +23,7 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
         tableAvailableSeatsElement.html(freeSeatsMessage);
     }
 
-    function renderInviteDisable(){
+    function renderInviteDisable() {
         const availableCount = calculateAvailableSeats();
         const inviteButton = $('#invite-modal-open-button')
         const availableInvite = availableCount > 0;
@@ -84,7 +84,7 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
                 <td>${action}</td>
             </tr>
         `);
-            if(isMe) {
+            if (isMe) {
                 row.addClass('row-disabled');
             }
             teamTable.append(row);
@@ -118,6 +118,55 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
         });
     }
 
+    function compare(first, second, col, type) {
+        let firstContent = first.children[col].textContent;
+        let secondContent = second.children[col].textContent;
+        if (type === "number") {
+            firstContent *= 1;
+            secondContent *= 1;
+        } else if (type === "string") {
+            firstContent = firstContent.toLowerCase();
+            secondContent = secondContent.toLowerCase();
+        }
+
+        if (firstContent < secondContent) {
+            return -1;
+        }
+        if (firstContent > secondContent) {
+            return 1;
+        }
+        return 0;
+    }
+
+    function listenSort() {
+        const colSortItem = $('#team-table .col-sort');
+
+        colSortItem.click(function () {
+            const sortIcon = $(this).children('.sort-icon');
+            const isActive = sortIcon.hasClass('sort-icon-active');
+            const isDesc = sortIcon.hasClass('sort-icon-up');
+
+            if (!isActive) {
+                $('#team-table .sort-icon.sort-icon-active').removeClass(['sort-icon-active', 'sort-icon-up']);
+                sortIcon.addClass('sort-icon-active');
+            }
+            if (isDesc) {
+                sortIcon.removeClass('sort-icon-up');
+            } else {
+                sortIcon.addClass('sort-icon-up');
+            }
+            const cellIndex = $(this).parent('th').index();
+            const tableBody = $('#team-table tbody');
+            const rows = $.makeArray($('#team-table tbody > tr'))
+            const sortOrder = isDesc ? 1 : -1;
+            rows.sort(function (first, second) {
+                return compare(first, second, cellIndex, 'string') * sortOrder;
+            })
+            tableBody.empty();
+            tableBody.append(rows);
+        });
+    }
+
 
     function refreshInvitations() {
         initState();
@@ -140,6 +189,7 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
         renderInvitationsTable();
         renderInviteDisable();
         listenRefresh();
+        listenSort();
     }
 
     return {
