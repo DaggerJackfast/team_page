@@ -106,7 +106,7 @@ define(['./config', './storage', 'dayjs'], function (config, storage, dayjs) {
         const invitations = getInvitations();
         const freeCount = config.teamCount - team.length - invitations.length;
         let invitationEmails = freeCount < emails.length ? emails.slice(0, freeCount) : emails;
-        const lastId = invitations.length ? invitations[invitations.length - 1].id : -1;
+        const lastId = invitations.length ? invitations[invitations.length - 1].id : 0;
         const expirationTime = dayjs(new Date()).add(1, 'month').toDate();
         const newInvitations = invitationEmails.map(function(email, index){
             return {

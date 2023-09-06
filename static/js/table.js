@@ -111,7 +111,7 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
                 <td class="hide-on-mobile">${expired}</td>
                 <td>
                     <span class="table-row-actions">
-                        <button data-invitaiton-id="${invitation.id}" data-button-name="delete" class="table-button button-red">
+                        <button data-invitation-id="${invitation.id}" data-button-name="delete" class="table-button button-red">
                             <i class="icon icon-delete-white"></i>
                             <span>delete</span>
                         </button>
