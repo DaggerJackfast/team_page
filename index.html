@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Teams</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="static/styles/normalize.css">
+    <link rel="stylesheet" href="static/vendors/select2.css">
+    <link rel="stylesheet" href="static/vendors/emailsInput.css">
+    <link rel="stylesheet" href="static/styles/main.css">
+    <link rel="stylesheet" href="static/styles/icons.css">
+    <script data-main="static/js/main" src="static/vendors/require.js"></script>
+</head>
+
+<body>
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-sidebar-control" id="sidebar-open-button">
+            <button><i class="icon icon-bar"></i></button>
+        </div>
+        <div class="navbar-brand">
+            <div class="navbar-logo">
+                <a href="#">
+                    <img src="static/images/logo.svg" alt="Logo">
+                </a>
+            </div>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-full-search">
+                <div class="search-input">
+                    <input placeholder="Search" type="text" name="search">
+                    <button class="search-button">
+                        <i class="icon icon-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="navbar-profile" id="user-profile">
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="main">
+    <section class="sidebar-section" id="sidebar">
+        <div class="sidebar">
+            <button id="sidebar-close-button" class="sidebar-close-button">
+                <i class="icon icon-close"></i>
+            </button>
+            <div class="sidebar-title text-green text-center">
+                Connected
+            </div>
+            <div class="sidebar-menu">
+                <ul class="sidebar-list">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-chats"></i>
+                            <span>Chats</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-whatsapp"></i>
+                            <span>Whatsapp Accounts</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-statistics"></i>
+                            <span>Statistics (beta)</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-team"></i>
+                            <span>Team</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-subscription"></i>
+                            <span>Subscription</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-mass-messaging"></i>
+                            <span>Messaging</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-pipedrive"></i>
+                            <span>Pipedrive</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-hubspot"></i>
+                            <span>HubSpot</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-zoho"></i>
+                            <span>Zoho CRM</span>
+                            <span class="badge badge-blue">New</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-monday"></i>
+                            <span>Monday</span>
+                            <span class="badge badge-blue">New</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-zapier"></i>
+                            <span>Zapier</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-integrations"></i>
+                            <span>Integrations</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-chrome"></i>
+                            <span>Chrome Extension</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-chatgpt"></i>
+                            <span>ChatGPT Auto</span>
+                            <span class="badge badge-blue">New</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-help"></i>
+                            <span>Ask AI Help Center</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="icon sidebar-icon icon-roadmap"></i>
+                            <span>TimelinesAI Roadmap</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="sidebar-down-title">version: <a href="#" class="link">44523343dee2</a></div>
+            </div>
+        </div>
+    </section>
+    <section class="main-section">
+        <div class="page">
+            <div class="page-title">
+                <span>Team</span>
+                <span id="team-available-seats" class="page-subtitle"></span>
+            </div>
+            <div class="page-control-panel">
+                <div id="tab-control" class="page-tabs">
+                    <div data-tab-name="team" class="page-control">
+                        <i class="icon control-icon icon-team"></i>
+                        <span>Team</span>
+                        <span id="team-count" class="control-label"></span>
+                    </div>
+                    <div data-tab-name="invitations" class="page-control">
+                        <i class="icon control-icon icon-user-invite"></i>
+                        <span>Invitations</span>
+                        <span id="invitations-count" class="control-label"></span>
+                    </div>
+                </div>
+            </div>
+            <div data-tab="team" class="page-tab-content">
+                <div class="page-sub-actions">
+                    <div class="sub-action">
+                        <button id="invite-modal-open-button" data-modal-open="invite-modal"
+                                class="sub-action-button button-green">Invite
+                        </button>
+                    </div>
+                </div>
+                <div class="page-table">
+                    <table class="table" id="team-table">
+                        <colgroup>
+                            <col span="1" class="col-image">
+                            <col span="1" class="col-name">
+                            <col span="1">
+                            <col span="1">
+                            <col span="1" class="col-action">
+                        </colgroup>
+                        <thead class="table-header">
+                        <tr>
+                            <th></th>
+                            <th>
+                                <button class="col-sort">
+                                    <span>Name</span>
+                                    <i class="icon sort-icon icon-arrow-down sort-icon-active"></i>
+                                </button>
+                            </th>
+                            <th>
+                                <button class="col-sort">
+                                    <span>Role</span>
+                                    <i class="icon sort-icon icon-arrow-down"></i>
+                                </button>
+                            </th>
+                            <th>
+                                <button class="col-sort">
+                                    <span>Status</span>
+                                    <i class="icon sort-icon icon-arrow-down"></i>
+                                </button>
+                            </th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-content">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div data-tab="invitations" class="page-tab-content">
+                <div class="page-table">
+                    <table class="table" id="invitations-table">
+                        <colgroup>
+                            <col span="1">
+                            <col span="1">
+                            <col span="1">
+                            <col span="1">
+                            <col span="1">
+                        </colgroup>
+                        <thead class="table-header">
+                        <tr>
+                            <th>
+                                Email
+                            </th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Expired in</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-content">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<div class="modal-overlay" data-modal="invite-modal">
+    <div class="modal">
+        <button class="modal-close" data-modal-close="invite-modal">
+            <i class="icon icon-close"></i>
+        </button>
+        <div class="modal-content">
+            <div class="modal-note">
+                <span>Invite people to workspace dev2</span>
+                <div class="modal-sub-message">
+                    <span id="modal-available-seats"></span>
+                </div>
+            </div>
+            <div class="invite-form">
+                <div class="form-group">
+                    <span class="form-label">Select role:</span>
+                    <select class="form-select" id="invite-role">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <span class="form-label">Email addresses:</span>
+                    <div id="invite-emails"></div>
+                </div>
+                <div class="form-note">
+                    <span>Your teammates will get an email that gives them access to your team</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-action button" data-modal-close="invite-modal">Cancel</button>
+            <button class="modal-action button button-green" id="invite-send">Send</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
