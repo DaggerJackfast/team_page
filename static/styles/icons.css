@@ -15,6 +15,14 @@
     background-image: url("../images/icons/ic-delete-white.svg");
 }
 
+.icon-resend {
+    background-image: url("../images/icons/ic-resend.svg");
+}
+
+.icon-resend-white {
+    background-image: url("../images/icons/ic-resend-white.svg");
+}
+
 .icon-bar {
     background-image: url("../images/icons/ic-bar.svg");
 }

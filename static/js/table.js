@@ -74,7 +74,7 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
             }
             const row = $(`
             <tr>
-                <td>
+                <td class="hide-on-mobile">
                 <span class="user-image">
                     <img src="${image}" alt="${fullName}">
                 </span>
@@ -108,11 +108,17 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
                 </td>
                 <td>${invitation.role}</td>
                 <td>${invitation.status}</td>
-                <td>${expired}</td>
+                <td class="hide-on-mobile">${expired}</td>
                 <td>
                     <span class="table-row-actions">
-                        <button class="table-button button-red">delete</button>
-                        <button class="table-button button-blue">resend</button>
+                        <button class="table-button button-red">
+                            <i class="icon icon-delete-white"></i>
+                            <span>delete</span>
+                        </button>
+                        <button class="table-button button-blue">
+                            <i class="icon icon-resend-white"></i>
+                            <span>resend</span>
+                        </button>
                     </span>
                 </td>
             </tr>

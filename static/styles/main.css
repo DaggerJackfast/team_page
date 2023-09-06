@@ -347,6 +347,7 @@ body {
 
 .table-row-actions {
     visibility: hidden;
+    display: flex;
 }
 
 .table-content tr:hover {
@@ -377,7 +378,15 @@ body {
     padding: 7px 12px;
     border-radius: var(--btn-radius);
     cursor: pointer;
-    display: inline-block;
+    margin-right: 10px;
+}
+
+.table-button .icon {
+    vertical-align: middle;
+}
+
+.table-button:last-of-type {
+    margin-right: 0;
 }
 
 .button {
@@ -677,16 +686,16 @@ body {
         padding: 5px 2px;
     }
 
-    .table-header th:first-of-type {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .hide-on-mobile {
         display: none;
     }
 
     .table-content tr:hover {
         background: inherit;
-    }
-
-    .table-content tr > td:first-of-type {
-        display: none;
     }
 
     .table-content td .row-email {
@@ -700,6 +709,7 @@ body {
     .table-button {
         padding: 3px 6px;
         font-size: 8px;
+        margin-right: 5px;
     }
 
     .table-button .icon {
