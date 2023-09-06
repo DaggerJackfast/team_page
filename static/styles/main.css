@@ -24,10 +24,11 @@ body {
     width: 100%;
     height: var(--header-height);
     display: flex;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15)
 }
 
-.navbar_box-shadow {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15)
+.navbar-sidebar-control {
+    display: none;
 }
 
 .navbar-brand {
@@ -510,6 +511,23 @@ body {
         height: 50px;
     }
 
+    .navbar-menu {
+        padding: 0 5px;
+    }
+
+    .navbar-sidebar-control {
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-sidebar-control button {
+        cursor: pointer;
+        background: none;
+        padding: 2px 4px;
+        border: none;
+    }
+
     .main {
         padding-top: 50px;
     }
@@ -530,7 +548,6 @@ body {
 
     .main {
         grid-template-columns: 1fr;
-        border: 1px solid red;
     }
 
     .profile-image img {
@@ -543,7 +560,29 @@ body {
     }
 
     .sidebar-section {
-        display: none;
+        position: absolute;
+        width: 90%;
+        background: #ffffff;
+        left: -100%;
+        transition: all 0.5s ease 0s;
+        height: calc(100vh - 50px);
+    }
+
+    .sidebar-section-active {
+        left: 0;
+    }
+
+    .sidebar {
+        position: relative;
+    }
+
+    .sidebar-close-button {
+        background: none;
+        border: none;
+        position: absolute;
+        right: 10px;
+        top: 30px;
+        cursor: pointer;
     }
 
     .page {
@@ -553,25 +592,46 @@ body {
     .page-title {
         font-size: 16px;
     }
+
     .page-control-panel {
         padding: 5px;
     }
+
     .page-control {
         font-size: 11px;
     }
+
     .control-icon {
-        width: 11px!important;
-        height: 11px!important;
+        width: 11px !important;
+        height: 11px !important;
     }
+
     .sub-action {
         font-size: 11px;
     }
+
+    .col-image {
+        width: 75% !important;
+    }
+
+    .col-name {
+        width: 40% !important;
+    }
+
+    .col-action {
+        width: auto !important;
+    }
+
     .sub-action-button {
         padding: 3px 6px;
     }
 
     .table {
         font-size: 11px;
+    }
+
+    .table tr {
+        width: 100%;
     }
 
     .table td {
@@ -582,19 +642,38 @@ body {
         padding: 5px 2px;
     }
 
-    .table-header th:last-of-type,
     .table-header th:first-of-type {
         display: none;
     }
 
-    .table-content tr > td:last-of-type,
+    .table-content tr:hover {
+        background: inherit;
+    }
+
     .table-content tr > td:first-of-type {
         display: none;
+    }
+
+    .table-content td .row-email {
+        display: none;
+    }
+
+    .table-row-actions {
+        visibility: visible;
     }
 
     .table-button {
         padding: 3px 6px;
         font-size: 8px;
+    }
+
+    .table-button .icon {
+        width: 10px;
+        height: 10px;
+    }
+
+    .table-button > span {
+        display: none;
     }
 
     .user-image img {
@@ -606,5 +685,18 @@ body {
         min-width: unset;
         width: 80vw;
         height: 60vh;
+    }
+
+    .modal-note {
+        font-size: 13px;
+        padding: 10px 7px;
+    }
+
+    .modal-sub-message {
+        font-size: 11px;
+    }
+
+    .email-input {
+        font-size: 11px;
     }
 }

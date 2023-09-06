@@ -6,6 +6,19 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.icon-delete {
+    background-image: url("../images/icons/ic-delete.svg");
+}
+
+.icon-delete-white {
+    background-image: url("../images/icons/ic-delete-white.svg");
+}
+
+.icon-bar {
+    background-image: url("../images/icons/ic-bar.svg");
+}
+
 .icon-close {
     background-image: url("../images/icons/ic-close.svg");
 }
@@ -17,6 +30,7 @@
 .icon-arrow-down {
     background-image: url("../images/icons/ic-arrow.svg");
 }
+
 .icon-arrow-up {
     background-image: url("../images/icons/ic-arrow.svg");
     transform: rotate(180deg);

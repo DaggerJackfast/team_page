@@ -8,13 +8,13 @@ requirejs.config({
     }
 });
 
-define(['./api', './tabs', './modal', './table', './profile', 'inviteForm'], function (api, tabs, modal, table, profile, inviteForm) {
+define(['./api', './tabs', './modal', './table', './profile', './inviteForm', './mobileSidebar'], function (api, tabs, modal, table, profile, inviteForm, mobileSidebar) {
     console.log('its working');
     api.clear();
-
     profile.init();
     table.init();
     tabs.init();
     inviteForm.init();
     modal.init(inviteForm.refresh);
+    mobileSidebar.init();
 });

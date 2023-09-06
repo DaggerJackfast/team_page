@@ -17,7 +17,10 @@
 
 <body>
 <header class="header">
-    <nav class="navbar navbar_box-shadow">
+    <nav class="navbar">
+        <div class="navbar-sidebar-control" id="sidebar-open-button">
+            <button><i class="icon icon-bar"></i></button>
+        </div>
         <div class="navbar-brand">
             <div class="navbar-logo">
                 <a href="#">
@@ -38,8 +41,11 @@
     </nav>
 </header>
 <main class="main">
-    <section class="sidebar-section">
+    <section class="sidebar-section" id="sidebar">
         <div class="sidebar">
+            <button id="sidebar-close-button" class="sidebar-close-button">
+                <i class="icon icon-close"></i>
+            </button>
             <div class="sidebar-title text-green text-center">
                 Connected
             </div>
@@ -172,14 +178,16 @@
             <div data-tab="team" class="page-tab-content">
                 <div class="page-sub-actions">
                     <div class="sub-action">
-                        <button id="invite-modal-open-button" data-modal-open="invite-modal" class="sub-action-button button-green">Invite</button>
+                        <button id="invite-modal-open-button" data-modal-open="invite-modal"
+                                class="sub-action-button button-green">Invite
+                        </button>
                     </div>
                 </div>
                 <div class="page-table">
                     <table class="table" id="team-table">
                         <colgroup>
                             <col span="1" class="col-image">
-                            <col span="1">
+                            <col span="1" class="col-name">
                             <col span="1">
                             <col span="1">
                             <col span="1" class="col-action">

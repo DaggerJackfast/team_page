@@ -53,7 +53,7 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
 
         team.forEach(function (member) {
             const fullName = `${member.firstName} ${member.lastName}`;
-            let viewName = `${fullName} (${member.email})`;
+            let viewName = `${fullName} <span class="row-email">(${member.email})</span>`;
 
             let image = 'static/images/placeholder.png';
             if (member.image) {
@@ -61,7 +61,10 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
             }
             let action = `
             <span class="table-row-actions">
-                <button class="table-button button-red">delete</button>
+                <button class="table-button button-red">
+                    <icon class="icon icon-delete-white"></icon>
+                    <span>delete</span>
+                </button>
             </span>
                 `;
             let isMe = me.id === member.id;
