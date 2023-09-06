@@ -585,6 +585,23 @@ body {
         cursor: pointer;
     }
 
+    .sidebar-title {
+        font-size: 14px;
+    }
+
+    .sidebar-link {
+        font-size: 13px;
+    }
+
+    .sidebar-icon {
+        width: 15px !important;
+        height: 15px !important;
+    }
+
+    .sidebar-down-title {
+        font-size: 12px;
+    }
+
     .page {
         padding: 0 10px;
     }
@@ -679,6 +696,11 @@ body {
     .user-image img {
         width: 20px;
         height: 20px;
+    }
+
+    .sort-icon {
+        width: 7px !important;
+        height: 10px !important;
     }
 
     .modal {
