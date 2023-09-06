@@ -15,6 +15,7 @@ define(function() {
     const InvitationStatuses = Object.freeze({
         Sent: 'sent',
         Expired: 'expired',
+        NotEnoughSeats: "not enough seats"
     });
     const teamCount = 10;
     return {

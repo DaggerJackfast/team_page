@@ -154,26 +154,26 @@
         <div class="page">
             <div class="page-title">
                 <span>Team</span>
-                <span id="team-available-seats" class="page-subtitle">(No seats available)</span>
+                <span id="team-available-seats" class="page-subtitle"></span>
             </div>
             <div class="page-control-panel">
                 <div id="tab-control" class="page-tabs">
                     <div data-tab-name="team" class="page-control">
                         <i class="icon control-icon icon-team"></i>
                         <span>Team</span>
-                        <span id="team-count" class="control-label">(0)</span>
+                        <span id="team-count" class="control-label"></span>
                     </div>
                     <div data-tab-name="invitations" class="page-control">
                         <i class="icon control-icon icon-user-invite"></i>
                         <span>Invitations</span>
-                        <span id="invitations-count" class="control-label">(0)</span>
+                        <span id="invitations-count" class="control-label"></span>
                     </div>
                 </div>
             </div>
             <div data-tab="team" class="page-tab-content">
                 <div class="page-sub-actions">
                     <div class="sub-action">
-                        <button data-modal-open="invite-modal" class="sub-action-button button-green">Invite</button>
+                        <button id="invite-modal-open-button" data-modal-open="invite-modal" class="sub-action-button button-green">Invite</button>
                     </div>
                 </div>
                 <div class="page-table">
@@ -236,7 +236,7 @@
         </div>
     </section>
 </main>
-<div class="modal-overlay modal-overlay-show" data-modal="invite-modal">
+<div class="modal-overlay" data-modal="invite-modal">
     <div class="modal">
         <button class="modal-close" data-modal-close="invite-modal">
             <i class="icon icon-close"></i>
@@ -245,19 +245,17 @@
             <div class="modal-note">
                 <span>Invite people to workspace dev2</span>
                 <div class="modal-sub-message">
-                    <span>You have 6 seats available</span>
+                    <span id="modal-available-seats"></span>
                 </div>
             </div>
             <div class="invite-form">
                 <div class="form-group">
-                    <label for="invite-role">
-                        Select role
-                        <select class="form-select" name="invite-role" id="invite-role">
-                        </select>
-                    </label>
+                    <span class="form-label">Select role:</span>
+                    <select class="form-select" id="invite-role">
+                    </select>
                 </div>
                 <div class="form-group">
-                    <span class="form-label">Email addresses</span>
+                    <span class="form-label">Email addresses:</span>
                     <div id="invite-emails"></div>
                 </div>
                 <div class="form-note">
@@ -267,7 +265,7 @@
         </div>
         <div class="modal-actions">
             <button class="modal-action button" data-modal-close="invite-modal">Cancel</button>
-            <button class="modal-action button button-green">Send</button>
+            <button class="modal-action button button-green" id="invite-send">Send</button>
         </div>
     </div>
 </div>

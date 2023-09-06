@@ -1,4 +1,4 @@
-define(['./config', './localStorage',], function (config, storage) {
+define(['./config', './storage', 'dayjs'], function (config, storage, dayjs) {
     const {Roles, MemberStatuses, InvitationStatuses} = config;
     const data = {
         team: [
@@ -77,14 +77,14 @@ define(['./config', './localStorage',], function (config, storage) {
 
     function getTeam() {
         if (!storage.get('team')) {
-            storage.add('team', data.team)
+            storage.set('team', data.team)
         }
         return storage.get('team');
     }
 
     function getInvitations() {
         if (!storage.get('invitations')) {
-            storage.add('invitations', data.invitations)
+            storage.set('invitations', data.invitations)
         }
         return storage.get('invitations');
     }
@@ -96,9 +96,29 @@ define(['./config', './localStorage',], function (config, storage) {
     function getMe() {
         const me = data.team[1];
         if (!storage.get('me')) {
-            storage.add('me', me);
+            storage.set('me', me);
         }
         return storage.get('me');
+    }
+
+    function sendInvitations(role, emails) {
+        const team = getTeam();
+        const invitations = getInvitations();
+        const freeCount = config.teamCount - team.length - invitations.length;
+        let invitationEmails = freeCount < emails.length ? emails.slice(0, freeCount) : emails;
+        const lastId = invitations[invitations.length - 1].id;
+        const expirationTime = dayjs(new Date()).add(1, 'month').toDate();
+        const newInvitations = invitationEmails.map(function(email, index){
+            return {
+                id: lastId + index + 1,
+                email: email,
+                role,
+                status: InvitationStatuses.Sent,
+                expirationTime,
+            }
+        });
+        invitations.push(...newInvitations);
+        storage.set('invitations', invitations);
     }
 
     return {
@@ -106,5 +126,6 @@ define(['./config', './localStorage',], function (config, storage) {
         getInvitations,
         getMe,
         clear,
+        sendInvitations,
     }
 })

@@ -1,4 +1,4 @@
-define(function() {
+define(function () {
     const Storage = {
         exists: (window.localStorage !== undefined),
 
@@ -9,7 +9,7 @@ define(function() {
             return JSON.parse(data);
         },
 
-        add(key, data) {
+        set(key, data) {
             if (!this.exists) return;
             window.localStorage.setItem(key, JSON.stringify(data));
         },
@@ -22,7 +22,7 @@ define(function() {
         wipe() {
             if (!this.exists) return;
             window.localStorage.clear();
-        }
+        },
     }
 
     return Storage;

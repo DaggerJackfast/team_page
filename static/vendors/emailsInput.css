@@ -24,6 +24,10 @@
     border-bottom: 1px dashed red;
 }
 
+.invalid-email .email-item {
+    border-bottom: none !important;
+}
+
 .duplicate {
     background: #ffdada;
     position: relative;
@@ -91,6 +95,7 @@
     align-items: center;
     align-content: center;
 }
+
 .emails-container .email-item {
     border-bottom: 1px solid;
 }

@@ -1,57 +1,88 @@
-define(['./config','./api','jquery', 'select2', 'emailsInput'], function(config,api, $, select2, emailsInput) {
-   function renderRoles(){
-      let roleSelect = $('#invite-role');
-      roleSelect.empty();
+define(['./config', './api', 'jquery', 'select2', 'emailsInput'], function (config, api, $, select2, emailsInput) {
+    const state = this;
 
-      Object.keys(config.Roles).forEach(function(key){
-         const value = config.Roles[key];
+    function renderRoles() {
+        const roleSelect = $('#invite-role');
+        roleSelect.empty();
+        roleSelect.append(`<option></option>`);
+        state.roleElement = roleSelect;
 
-         const option = `
-         <option value="${value}">${value}</option>
-         `;
-         roleSelect.append(option);
-      });
+        const options = Object.keys(config.Roles).map(function (key) {
+                const value = config.Roles[key];
+                return {
+                    id: value,
+                    text: key
+                }
+            }
+        )
 
-      roleSelect.select2({
-         placeholder: "Select role",
-         minimumResultsForSearch: -1,
-         dropdownAutoWidth: true,
-         dropdownCssClass: 'form-select-dropdown',
-         width: '150px',
-         dropdownParent: '.invite-form'
-      });
-   }
+        roleSelect.select2({
+            data: options,
+            placeholder: "Select role",
+            allowClear: true,
+            minimumResultsForSearch: -1,
+            dropdownAutoWidth: true,
+            dropdownCssClass: 'form-select-dropdown',
+            width: '150px',
+            dropdownParent: '.invite-form'
+        });
+    }
 
-   function renderEmails() {
-      $('#invite-emails').empty();
-      const input = emailsInput($('#invite-emails')[0], {
-         placeholder: 'Add emails for invite...',
-         morePlaceholder: 'Add more emails for invite...'
-      });
-      const listOfRandomEmails = [
-         'medhat@miro.com',
-         'maha@miro.com',
-         'karma@miro.com',
-         'adam@miro.com',
-         'john@miro.com',
-         'mike@miro.com',
-         'dirk@miro.com',
-         'thomas@miro.com',
-         'irina@miro.com',
-         'andrew@miro.com',
-         'mo@miro.com',
-      ]
-      listOfRandomEmails.forEach(function(email){
-         input.addEmail(email);
-      })
-   }
+    function renderEmails() {
+        let inviteEmails = $('#invite-emails');
+        inviteEmails.empty();
 
-   function init() {
-      renderRoles();
-      renderEmails();
-   }
+        state.emailsInputInstance = emailsInput(inviteEmails[0], {
+            placeholder: 'Add emails for invite...',
+            morePlaceholder: 'Add more emails for invite...'
+        });
+    }
 
-   return {
-      init
-   }
+    function renderAvailableSeats() {
+        const team = api.getTeam();
+        const invitations = api.getInvitations();
+        const availableSeatsCount = config.teamCount - team.length - invitations.length;
+
+        if (availableSeatsCount > 0) {
+            $('#modal-available-seats').html(`You have ${availableSeatsCount} available`)
+        }
+    }
+
+    function listenSendButton() {
+        const sendButton = $('#invite-send');
+        const roleInput = $('#invite-role');
+
+        sendButton.click(function (e) {
+            e.stopPropagation();
+            console.log('call send button click')
+            const selected = roleInput.select2('data');
+            const role = selected.pop().id;
+            const emails = state.emailsInputInstance.getEmailsList();
+
+            if (!role || !emails.length) return;
+
+            api.sendInvitations(role, emails);
+
+            $(document).trigger('RefreshInvitations');
+            $(document).trigger('CloseModal', [{name: 'invite-modal'}])
+        });
+    }
+
+    function init() {
+        renderAvailableSeats()
+        renderRoles();
+        renderEmails();
+        listenSendButton();
+    }
+
+    function refresh() {
+        renderAvailableSeats();
+        renderEmails();
+        renderRoles();
+    }
+
+    return {
+        init,
+        refresh,
+    }
 });

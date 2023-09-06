@@ -23,9 +23,18 @@ define(['jquery'], function ($) {
         });
     }
 
+    function listenClose() {
+        $(document).on('CloseModal', function(e, data) {
+            const modalName = data.name;
+            const modal = $(`[data-modal='${modalName}'].modal-overlay-show`);
+            modal.removeClass("modal-overlay-show");
+        });
+    }
+
     function init(callback = null) {
         listenOpenButton();
         listenCloseButton();
+        listenClose();
         state.callback = callback ? callback : function() {};
     }
 
