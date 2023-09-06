@@ -13,12 +13,6 @@ body {
     min-width: 275px;
 }
 
-.container {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 12px;
-}
-
 .header {
     position: absolute;
     top: 0;
@@ -427,24 +421,24 @@ body {
     backdrop-filter: blur(3px);
     z-index: 1;
     display: none;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
 }
 
 .modal-overlay-show {
-    display: flex;
+    display: block;
 }
 
 .modal {
     display: flex;
-    min-width: 700px;
-    min-height: 400px;
+    width: 700px;
+    height: 400px;
     background-color: #ffffff;
     border-radius: 10px;
     padding: 30px;
     flex-direction: column;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .modal-close {
@@ -507,3 +501,110 @@ body {
     margin-right: 0;
 }
 
+@media (max-width: 768px) {
+    body {
+        font-size: 11px;
+    }
+
+    .navbar {
+        height: 50px;
+    }
+
+    .main {
+        padding-top: 50px;
+    }
+
+    .navbar-brand img {
+        height: auto;
+        width: 42px;
+    }
+
+    .search-input {
+        padding: 5px;
+        width: 25vw;
+    }
+
+    .search-button {
+        padding: 5px;
+    }
+
+    .main {
+        grid-template-columns: 1fr;
+        border: 1px solid red;
+    }
+
+    .profile-image img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .profile-name {
+        font-size: 11px;
+    }
+
+    .sidebar-section {
+        display: none;
+    }
+
+    .page {
+        padding: 0 10px;
+    }
+
+    .page-title {
+        font-size: 16px;
+    }
+    .page-control-panel {
+        padding: 5px;
+    }
+    .page-control {
+        font-size: 11px;
+    }
+    .control-icon {
+        width: 11px!important;
+        height: 11px!important;
+    }
+    .sub-action {
+        font-size: 11px;
+    }
+    .sub-action-button {
+        padding: 3px 6px;
+    }
+
+    .table {
+        font-size: 11px;
+    }
+
+    .table td {
+        padding: 8px 2px;
+    }
+
+    .table-header th {
+        padding: 5px 2px;
+    }
+
+    .table-header th:last-of-type,
+    .table-header th:first-of-type {
+        display: none;
+    }
+
+    .table-content tr > td:last-of-type,
+    .table-content tr > td:first-of-type {
+        display: none;
+    }
+
+    .table-button {
+        padding: 3px 6px;
+        font-size: 8px;
+    }
+
+    .user-image img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .modal {
+        min-width: unset;
+        width: 80vw;
+        height: 60vh;
+    }
+}
