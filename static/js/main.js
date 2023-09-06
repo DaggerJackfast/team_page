@@ -1,10 +1,10 @@
 requirejs.config({
     paths: {
-        jquery: '/static/vendors/jquery',
-        domReady: '/static/vendors/domReady',
-        dayjs: '/static/vendors/dayjs',
-        select2: '/static/vendors/select2',
-        emailsInput: '/static/vendors/emailsInput',
+        jquery: '../vendors/jquery',
+        domReady: '../vendors/domReady',
+        dayjs: '../vendors/dayjs',
+        select2: '../vendors/select2',
+        emailsInput: '../vendors/emailsInput',
     }
 });
 
