@@ -9,7 +9,6 @@ requirejs.config({
 });
 
 define(['./api', './tabs', './modal', './table', './profile', './inviteForm', './mobileSidebar'], function (api, tabs, modal, table, profile, inviteForm, mobileSidebar) {
-    console.log('its working');
     api.clear();
     profile.init();
     table.init();
@@ -17,4 +16,5 @@ define(['./api', './tabs', './modal', './table', './profile', './inviteForm', '.
     inviteForm.init();
     modal.init(inviteForm.refresh);
     mobileSidebar.init();
+    console.log('main js module is successfully initialized');
 });

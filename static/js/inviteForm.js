@@ -54,7 +54,6 @@ define(['./config', './api', 'jquery', 'select2', 'emailsInput'], function (conf
 
         sendButton.click(function (e) {
             e.stopPropagation();
-            console.log('call send button click')
             const selected = roleInput.select2('data');
             const role = selected.pop().id;
             const emails = state.emailsInputInstance.getEmailsList();
