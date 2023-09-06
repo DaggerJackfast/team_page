@@ -594,6 +594,7 @@ body {
     }
 
     .sidebar-close-button {
+        display: block;
         background: none;
         border: none;
         position: absolute;
