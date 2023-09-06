@@ -57,15 +57,28 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
+    position: relative;
 }
 
 .search-input {
+    border: 1px solid #cecece;
     border-radius: 4px;
-    padding: 10px;
+    display: inline-flex;
+}
+
+.search-input input {
+    border: none;
+}
+
+.search-input input:focus {
+    outline: none;
 }
 
 .search-button {
     padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .navbar-profile {
@@ -113,6 +126,10 @@ body {
 
 .sidebar {
     padding: 30px 10px;
+}
+
+.sidebar-close-button {
+    display: none;
 }
 
 .sidebar-title {
@@ -537,7 +554,7 @@ body {
         width: 42px;
     }
 
-    .search-input {
+    .search-input input {
         padding: 5px;
         width: 25vw;
     }
