@@ -173,6 +173,7 @@ define(['./config', './storage', './api', 'jquery', 'dayjs'], function (config, 
             })
             tableBody.empty();
             tableBody.append(rows);
+            listenTeamDeleteButton();
         });
     }
 
